@@ -15,3 +15,8 @@ def score_guess(guess: str, answer: str) -> str:
                 marks[i] = "Y"
                 available[guess[i]] -= 1
     return "".join(marks)
+
+def load_words(path: str) -> list[str]:
+    """Read word file and return its words as a list"""
+    with open(path) as f:
+        return f.read().splitlines()
