@@ -1,4 +1,4 @@
-from wordle import score_guess, load_words
+from wordle import score_guess, load_words, to_emoji
 
 
 def test_exact_match_is_all_green():
@@ -15,3 +15,11 @@ def test_green_uses_up_letter_before_yellows():
     assert score_guess("EERIE", "THERE") == "Y-Y-G"
 def test_load_words_reads_every_answer():
     assert len(load_words("words/answers.txt")) == 1000
+def test_all_green():
+    assert to_emoji("GGGGG") == "🟩🟩🟩🟩🟩"
+def test_all_yellow():
+    assert to_emoji("YYYYY") == "🟨🟨🟨🟨🟨"
+def test_all_gray():
+    assert to_emoji("-----") == "⬛⬛⬛⬛⬛"
+
+    

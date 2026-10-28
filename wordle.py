@@ -20,3 +20,14 @@ def load_words(path: str) -> list[str]:
     """Read word file and return its words as a list"""
     with open(path) as f:
         return f.read().splitlines()
+
+def to_emoji(score: str) -> str:
+    emojis = []
+    for mark in score:
+        if mark == "G":
+            emojis.append("🟩")
+        elif mark == "Y":
+            emojis.append("🟨")
+        else:
+            emojis.append("⬛")
+    return "".join(emojis)
